@@ -1,0 +1,156 @@
+###
+# Patch book
+PATCH http://localhost:5000/books/2
+Content-Type: application/json
+
+{
+    "title": "Norwegian Wood",
+    "author": "Haruki Murakami",
+    "price": 98000,
+    "synopsis": "Ketika ia mendengar Norwegian Wood karya Beatles, Toru Watanabe terkenang akan Naoko, gadis cinta pertamanya, yang kebetulan juga kekasih mendiang sahabat karibnya, Kizuki. Serta-merta ia merasa terlempar ke masa-masa kuliah di Tokyo, hampir 20 tahun silam, terhanyut daam dunia pertemanan yang serba pelik, seks bebas, nafsu-nafsi, dan rasa hampa hingga ke masa seorang gadis badung, Midori, memasuki kehidupannya, sehingga ia harus memilih antara masa depan dan masa silam.",
+    "category": "Romance",
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1699682893i/11297.jpg",
+    "ratingId": 1  
+}
+
+###
+# Delete book
+DELETE http://localhost:5000/books/6
+
+###
+# Delete book
+POST http://localhost:5000/ratings
+Content-Type: application/json
+
+{
+    "rate": 4.1,
+    "count": 233
+}
+
+###
+# CREATE book
+POST http://localhost:5000/books
+Content-Type: application/json
+
+{
+    "title": "Animal Farms",
+    "author": "G. Orwell",
+    "price": 198400,
+    "imgUrl": "https://m.media-amazon.com/images/I/91LUbAcpACL._AC_UF1000,1000_QL80_.jpg",
+    "ratingId": 1  
+}
+
+###
+# CREATE book
+POST http://localhost:5000/books
+Content-Type: application/json
+
+{
+    "title": "Norwegian Wood",
+    "author": "Murakami",
+    "price": 84000,
+    "synopsis": "Romance",
+    "imgUrl": "https://aksarapers.com/wp-content/uploads/2022/05/19917.jpg",
+    "ratingId": 1
+}
+
+###
+# CREATE book
+POST http://localhost:5000/books/
+Content-Type: application/json
+
+{
+    "title": "Bumi Manusia",
+    "author": "Pramoedya Ananta Toer",
+    "price": 148000,
+    "synopsis": "Ini adalah kisah dua anak manusia yang meramu cinta di atas pentas pergelutan tanah kolonial awal abad 20. Inilah kisah Minke dan Annelies. Cinta yang hadir di hati Minke untuk Annelies, membuatnya mengalami pergulatan batin tak berkesudahan. Dia, pemuda pribumi, Jawa totok. Sementara Annelies, gadis Indo Belanda anak seorang Nyai. Bapak Minke yang baru saja diangkat jadi Bupati, tak pernah setuju Minke dekat dengankeluarga Nyai, sebab posisi Nyai di masa itu dianggap sama rendah dengan binatang peliharaan.",
+    "category": "History",
+    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1565658920i/1398034.jpg",
+    "ratingId": 4
+}
+
+###
+# UPDATE book
+POST http://localhost:5000/books/
+Content-Type: application/json
+
+{
+    "title": "Harry Potter dan Piala Api",
+    "author": "J.K. Rowling",
+    "price": 236000,
+    "synopsis": "Harry Potter dan Piala Api adalah novel fantasi yang ditulis oleh penulis Inggris J. K. Rowling dan merupakan novel keempat dalam seri Harry Potter.",
+    "category": "Fantasy",
+    "image": "https://cdn.gramedia.com/uploads/items/9786020342726_harry-potter-dan-piala-api-cover-baru.jpg",
+    "ratingId": 5  
+}
+
+###
+# CREATE book
+POST http://localhost:5000/books/
+Content-Type: application/json
+
+{
+    "title": "Max Havelaar",
+    "author": "Multatuli",
+    "price": 52000,
+    "synopsis": "Max Havelaar bercerita tentang sistem tanam paksa yang menindas kaum bumiputra di daerah Lebak, Banten.",
+    "category": "History",
+    "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSZQ8oI01DI_94G3N7tKH678howQvMeh1u6-Vtn0L6iXilRLSKD",
+    "ratingId": 7
+}
+
+# <------------------- USER -------------------->
+
+###
+# CREATE USER
+POST http://localhost:5000/users/
+Content-Type: application/json
+
+{
+    "name": "naruto",
+    "username": "naruto",
+    "email": "naruto@gmail.com",
+    "password": "naruto",
+    "confirmPassword": "naruto",
+    "role": "user"
+}
+
+###
+# GET ALL USER
+GET http://localhost:5000/users/
+
+###
+# DELETE USER
+DELETE http://localhost:5000/users/e059b5b4-c199-44e3-a8ba-5375c401ba0c
+
+###
+# UPDATE USER
+PATCH http://localhost:5000/users/389e8672-5024-4097-92c0-3c8722ad8370
+Content-Type: application/json
+
+{
+    "name": "Luffy",
+    "username": "Luffy",
+    "email": "luffy@gmail.com",
+    "password": "Luffy",
+    "confirmPassword": "Luffy"
+}
+
+# <------------------- LOGIN -------------------->
+###
+# GET CURRENT USER
+GET http://localhost:5000/currentUser/
+
+###
+# LOGOUT USER
+DELETE http://localhost:5000/logout
+
+###
+# LOGIN USER
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "username": "Luffy",
+    "password": "Luffy"
+}
