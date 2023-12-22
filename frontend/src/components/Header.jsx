@@ -1,6 +1,6 @@
 import React from 'react';
 import { BookHeartIcon, ShoppingCartIcon } from 'lucide-react';
-import Dropdown from './Dropdown'; // Import the dropdown component
+import Dropdown from './Dropdown'; 
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';

@@ -3,56 +3,54 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const ProductList = () => {
-  const [Books, setBooks] = useState([]);
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getBooks();
+    getProducts();
   }, []);
 
-  const getBooks = async () => {
+  const getProducts = async () => {
     const response = await axios.get("http://localhost:5000/books");
-    setBooks(response.data);
+    setProducts(response.data);
   };
 
-  const deleteProduct = async (bookId) => {
-    await axios.delete(`http://localhost:5000/books/${bookId}`);
-    getBooks();
+  const deleteProduct = async (productId) => {
+    await axios.delete(`http://localhost:5000/books/${productId}`);
+    getProducts();
   };
 
   return (
     <div>
-      <h1 className="title">Books</h1>
-      <h2 className="subtitle">List of Books</h2>
-      <Link to="/Books/add" className="button is-primary mb-2">
+      <h1 className="text-3xl font-bold mb-4">Products</h1>
+      <h2 className="text-xl font-semibold mb-2">List of Products</h2>
+      <Link to="/books/add" className="bg-blue-500 text-white py-2 px-4 rounded mb-2 inline-block">
         Add New
       </Link>
-      <table className="table is-striped is-fullwidth">
+      <table className="table-auto w-full">
         <thead>
           <tr>
-            <th>No</th>
-            <th>Product Name</th>
-            <th>Price</th>
-            <th>Created By</th>
-            <th>Actions</th>
+            <th className="px-4 py-2">#</th>
+            <th className="px-4 py-2">Product Name</th>
+            <th className="px-4 py-2">Price</th>
+            <th className="px-4 py-2">Actions</th>
           </tr>
         </thead>
         <tbody>
-          {Books.map((product, index) => (
-            <tr key={product.uuid}>
-              <td>{index + 1}</td>
-              <td>{product.name}</td>
-              <td>{product.price}</td>
-              <td>{product.user.name}</td>
-              <td>
+          {products.map((product, index) => (
+            <tr key={product.id}>
+              <td className="border px-4 py-2">{index + 1}</td>
+              <td className="border px-4 py-2">{product.title}</td>
+              <td className="border px-4 py-2">{product.price}</td>
+              <td className="border px-4 py-2">
                 <Link
-                  to={`/books/edit/${product.uuid}`}
-                  className="button is-small is-info"
+                  to={`/products/edit/${product.id}`}
+                  className="bg-blue-500 text-white py-1 px-2 rounded mr-2 inline-block"
                 >
                   Edit
                 </Link>
                 <button
-                  onClick={() => deleteProduct(product.uuid)}
-                  className="button is-small is-danger"
+                  onClick={() => deleteProduct(product.id)}
+                  className="bg-red-500 text-white py-1 px-2 rounded inline-block"
                 >
                   Delete
                 </button>
