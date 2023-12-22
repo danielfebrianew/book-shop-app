@@ -6,22 +6,13 @@ import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { selectTotalItemCart } from '../features/cart/cartSlice';
 import { selectTotalWishlistItems } from '../features/wishlist/wishlistSlice';
-import { LogOut, reset } from '../features/authSlice';
 
 function Header({ onOpenCart, onOpenWishlist }) {
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
   const totalCartItem = useSelector(selectTotalItemCart);
   const totalWishlistItem = useSelector(selectTotalWishlistItems);
 
   const handleToggleWishlist = () => {
     onOpenWishlist();
-  };
-
-  const logout = () => {
-    dispatch(LogOut());
-    dispatch(reset());
-    navigate('/');
   };
 
   return (
@@ -72,9 +63,6 @@ function Header({ onOpenCart, onOpenWishlist }) {
               )}
             </button>
             <Dropdown />
-            <button onClick={logout} className="text-white text-2s font-medium">
-              Log out
-            </button>
           </div>
         </div>
       </div>

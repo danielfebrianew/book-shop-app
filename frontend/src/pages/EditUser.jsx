@@ -13,14 +13,6 @@ const EditUser = () => {
     dispatch(getMe());
   }, [dispatch]);
 
-  useEffect(() => {
-    if (isError) {
-      navigate("/");
-    }
-    if (user && user.role !== "admin") {
-      navigate("/dashboard");
-    }
-  }, [isError, user, navigate]);
   return (
       <FormEditUser />
   );
