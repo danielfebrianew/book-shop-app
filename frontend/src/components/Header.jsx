@@ -1,11 +1,12 @@
 import React from 'react';
 import { BookHeartIcon, ShoppingCartIcon } from 'lucide-react';
+import Dropdown from './Dropdown'; // Import the dropdown component
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
 import { selectTotalItemCart } from '../features/cart/cartSlice';
 import { selectTotalWishlistItems } from '../features/wishlist/wishlistSlice';
-import { LogOut, reset } from "../features/authSlice";
+import { LogOut, reset } from '../features/authSlice';
 
 function Header({ onOpenCart, onOpenWishlist }) {
   const dispatch = useDispatch();
@@ -20,12 +21,8 @@ function Header({ onOpenCart, onOpenWishlist }) {
   const logout = () => {
     dispatch(LogOut());
     dispatch(reset());
-    navigate("/");
+    navigate('/');
   };
-
-  const adminControl = () => {
-    navigate("/admin");
-  }
 
   return (
     <header className="bg-gray-800 fixed top-0 w-full z-50">
@@ -49,10 +46,7 @@ function Header({ onOpenCart, onOpenWishlist }) {
               title="wishlist"
               onClick={handleToggleWishlist}
             >
-              <BookHeartIcon
-                strokeWidth={2.5}
-                className="w-5 stroke-gray-100"
-              />
+              <BookHeartIcon strokeWidth={2.5} className="w-5 stroke-gray-100" />
               {totalWishlistItem > 0 ? (
                 <div className="bg-red-500 rounded-full w-4 h-4 flex items-center justify-center absolute -top-1.5 -right-2 border-[3px] border-gray-800" />
               ) : (
@@ -65,10 +59,7 @@ function Header({ onOpenCart, onOpenWishlist }) {
               title="Cart"
               onClick={onOpenCart}
             >
-              <ShoppingCartIcon
-                strokeWidth={2.5}
-                className="w-5 stroke-gray-100"
-              />
+              <ShoppingCartIcon strokeWidth={2.5} className="w-5 stroke-gray-100" />
               {totalCartItem > 0 ? (
                 <div className="bg-red-500 rounded-full w-5.5 h-5.5 flex items-center justify-center absolute -top-2.5 -right-2.5 border-[3px] border-gray-800">
                   <span className="text-white text-2xs font-medium">
@@ -80,9 +71,7 @@ function Header({ onOpenCart, onOpenWishlist }) {
                 ''
               )}
             </button>
-            <button onClick={adminControl} className="text-white text-2s font-medium">
-              Admin Menu
-            </button>
+            <Dropdown />
             <button onClick={logout} className="text-white text-2s font-medium">
               Log out
             </button>

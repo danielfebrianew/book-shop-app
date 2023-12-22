@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { LoginUser, reset } from "../features/authSlice";
 
 const Login = () => {
@@ -57,11 +57,19 @@ const Login = () => {
           <div className="flex items-center justify-between">
             <button
               type="submit"
-              className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             >
               {isLoading ? "Loading..." : "Login"}
             </button>
           </div>
+          <p className="flex items-center place-content-center text-sm mt-6">
+            {" "}
+            Don't have an account yet?
+            {" "}
+            <Link to="/register" className="text-blue-500">
+              Sign up
+            </Link>
+          </p>
         </form>
       </div>
     </section>
