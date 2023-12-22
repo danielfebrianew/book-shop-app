@@ -23,8 +23,18 @@ POST http://localhost:5000/ratings
 Content-Type: application/json
 
 {
-    "rate": 4.1,
-    "count": 233
+    "rate": 3.9,
+    "count": 842
+}
+
+###
+# Delete book
+POST http://localhost:5000/ratings
+Content-Type: application/json
+
+{
+    "rate": 4.6,
+    "count": 68
 }
 
 ###
@@ -33,11 +43,13 @@ POST http://localhost:5000/books
 Content-Type: application/json
 
 {
-    "title": "Animal Farms",
-    "author": "G. Orwell",
-    "price": 198400,
-    "imgUrl": "https://m.media-amazon.com/images/I/91LUbAcpACL._AC_UF1000,1000_QL80_.jpg",
-    "ratingId": 1  
+    "title": "Pride and Prejudice",
+    "author": "Jane Austen",
+    "price": 245000,
+    "synopsis": "A timeless classic exploring the themes of love, class, and societal expectations.",
+    "category": "Romance",
+    "image": "https://s3.amazonaws.com/adg-bucket/pride-and-pejudice-jane-austen/3425-medium.jpg",
+    "ratingId": 12  
 }
 
 ###
@@ -46,28 +58,32 @@ POST http://localhost:5000/books
 Content-Type: application/json
 
 {
-    "title": "Norwegian Wood",
-    "author": "Murakami",
-    "price": 84000,
-    "synopsis": "Romance",
-    "imgUrl": "https://aksarapers.com/wp-content/uploads/2022/05/19917.jpg",
-    "ratingId": 1
+    "title": "Ender's Game",
+    "author": "Orson Scott Card",
+    "price": 199500,
+    "synopsis": "A tale of a young boy genius recruited to command Earth's fleet against an alien threat.",
+    "category": "Science Fiction",
+    "image": "https://m.media-amazon.com/images/I/81c2Rdl-TXL._AC_UF1000,1000_QL80_.jpg",
+    "ratingId": 13 
 }
+
+
 
 ###
 # CREATE book
-POST http://localhost:5000/books/
+POST http://localhost:5000/books
 Content-Type: application/json
 
 {
-    "title": "Bumi Manusia",
-    "author": "Pramoedya Ananta Toer",
-    "price": 148000,
-    "synopsis": "Ini adalah kisah dua anak manusia yang meramu cinta di atas pentas pergelutan tanah kolonial awal abad 20. Inilah kisah Minke dan Annelies. Cinta yang hadir di hati Minke untuk Annelies, membuatnya mengalami pergulatan batin tak berkesudahan. Dia, pemuda pribumi, Jawa totok. Sementara Annelies, gadis Indo Belanda anak seorang Nyai. Bapak Minke yang baru saja diangkat jadi Bupati, tak pernah setuju Minke dekat dengankeluarga Nyai, sebab posisi Nyai di masa itu dianggap sama rendah dengan binatang peliharaan.",
-    "category": "History",
-    "image": "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1565658920i/1398034.jpg",
-    "ratingId": 4
+    "title": "Neuromancer",
+    "author": "William Gibson",
+    "price": 198900,
+    "synopsis": "A groundbreaking cyberpunk novel that explores the fusion of technology and humanity.",
+    "category": "Science Fiction",
+    "image": "https://upload.wikimedia.org/wikipedia/id/thumb/2/28/Neuromancer.jpg/220px-Neuromancer.jpg",
+    "ratingId": 13  
 }
+
 
 ###
 # UPDATE book
@@ -96,7 +112,7 @@ Content-Type: application/json
     "synopsis": "Max Havelaar bercerita tentang sistem tanam paksa yang menindas kaum bumiputra di daerah Lebak, Banten.",
     "category": "History",
     "image": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSZQ8oI01DI_94G3N7tKH678howQvMeh1u6-Vtn0L6iXilRLSKD",
-    "ratingId": 7
+    "ratingId": 9
 }
 
 # <------------------- USER -------------------->
